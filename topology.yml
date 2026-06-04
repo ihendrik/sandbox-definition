@@ -1,4 +1,4 @@
-yamlname: basic-training-sandbox
+name: basic-training-sandbox
 
 hosts:
   - name: router
