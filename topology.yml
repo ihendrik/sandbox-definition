@@ -1,9 +1,9 @@
 name: basic-training-sandbox
 
 networks:
-  - name: dmz_net
+  - name: dmz-net
     cidr: 10.0.1.0/24
-  - name: lan_net
+  - name: lan-net
     cidr: 10.0.2.0/24
 
 hosts:
@@ -12,9 +12,9 @@ hosts:
       image: cirros
       mgmt_user: cirros
     interfaces:
-      - network: dmz_net
+      - network: dmz-net
         ip: 10.0.1.1
-      - network: lan_net
+      - network: lan-net
         ip: 10.0.2.1
 
   - name: attacker
@@ -22,7 +22,7 @@ hosts:
       image: ubuntu-noble-x86_64
       mgmt_user: ubuntu
     interfaces:
-      - network: dmz_net
+      - network: dmz-net
         ip: 10.0.1.10
 
   - name: victim
@@ -30,5 +30,5 @@ hosts:
       image: debian-12-x86_64
       mgmt_user: debian
     interfaces:
-      - network: lan_net
+      - network: lan-net
         ip: 10.0.2.20
