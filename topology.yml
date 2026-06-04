@@ -1,4 +1,4 @@
-version: '2'
+name: basic-training-sandbox
 description: Sandbox Training Environment
 
 networks:
@@ -8,7 +8,6 @@ networks:
     cidr: 10.0.2.0/24
 
 hosts:
-  # Using cirros as a minimal footprint gateway node
   - name: router
     base_box:
       image: cirros
@@ -19,7 +18,6 @@ hosts:
       - network: lan_net
         ip: 10.0.2.1
 
-  # Using ubuntu-noble-x86_64 for the primary attacker machine
   - name: attacker
     base_box:
       image: ubuntu-noble-x86_64
@@ -28,7 +26,6 @@ hosts:
       - network: dmz_net
         ip: 10.0.1.10
 
-  # Using debian-12-x86_64 for the target machine
   - name: victim
     base_box:
       image: debian-12-x86_64
