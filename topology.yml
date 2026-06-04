@@ -1,5 +1,4 @@
 name: basic-training-sandbox
-description: Sandbox Training Environment
 
 networks:
   - name: dmz_net
