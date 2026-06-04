@@ -2,17 +2,20 @@ name: basic-training-sandbox
 
 hosts:
   - name: attacker
+    flavor: m1.small
     base_box:
       image: ubuntu-noble-x86_64
       mgmt_user: ubuntu
 
   - name: victim
+    flavor: m1.small
     base_box:
       image: debian-12-x86_64
       mgmt_user: debian
 
 routers:
   - name: router
+    flavor: m1.tiny
     base_box:
       image: cirros
       mgmt_user: cirros
