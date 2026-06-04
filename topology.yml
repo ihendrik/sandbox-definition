@@ -1,6 +1,17 @@
 name: basic-training-sandbox
 
 hosts:
+  - name: attacker
+    base_box:
+      image: ubuntu-noble-x86_64
+      mgmt_user: ubuntu
+
+  - name: victim
+    base_box:
+      image: debian-12-x86_64
+      mgmt_user: debian
+
+routers:
   - name: router
     base_box:
       image: cirros
@@ -11,24 +22,17 @@ hosts:
       - network: lan-net
         ip: 10.0.2.1
 
-  - name: attacker
-    base_box:
-      image: ubuntu-noble-x86_64
-      mgmt_user: ubuntu
-    interfaces:
-      - network: dmz-net
-        ip: 10.0.1.10
-
-  - name: victim
-    base_box:
-      image: debian-12-x86_64
-      mgmt_user: debian
-    interfaces:
-      - network: lan-net
-        ip: 10.0.2.20
-
 networks:
   - name: dmz-net
     cidr: 10.0.1.0/24
   - name: lan-net
     cidr: 10.0.2.0/24
+
+net_mappings:
+  - host: attacker
+    network: dmz-net
+    ip: 10.0.1.10
+
+  - host: victim
+    network: lan-net
+    ip: 10.0.2.20
