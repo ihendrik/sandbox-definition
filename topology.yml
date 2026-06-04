@@ -19,15 +19,11 @@ routers:
     base_box:
       image: cirros
       mgmt_user: cirros
-    interfaces:
-      - network: dmz-net
-        ip: 10.0.1.1
-      - network: lan-net
-        ip: 10.0.2.1
 
 networks:
   - name: dmz-net
     cidr: 10.0.1.0/24
+
   - name: lan-net
     cidr: 10.0.2.0/24
 
@@ -39,3 +35,12 @@ net_mappings:
   - host: victim
     network: lan-net
     ip: 10.0.2.20
+
+router_mappings:
+  - router: router
+    network: dmz-net
+    ip: 10.0.1.1
+
+  - router: router
+    network: lan-net
+    ip: 10.0.2.1
