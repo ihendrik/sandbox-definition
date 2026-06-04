@@ -44,3 +44,9 @@ router_mappings:
   - router: router
     network: lan-net
     ip: 10.0.2.1
+
+groups:
+  - name: default-group
+    nodes:
+      - attacker
+      - victim
