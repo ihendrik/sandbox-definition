@@ -1,0 +1,29 @@
+yaml---
+- name: Provision Ubuntu Attacker
+  hosts: attacker
+  become: true
+  tasks:
+    - name: Ensure security tools are installed
+      apt:
+        name:
+          - nmap
+          - masscan
+          - tshark
+        state: present
+        update_cache: yes
+
+- name: Provision Debian Victim
+  hosts: victim
+  become: true
+  tasks:
+    - name: Install target web server
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Enable and start Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
