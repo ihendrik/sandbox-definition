@@ -1,4 +1,4 @@
-name: basic-training-sandbox
+name: basic-training-sandbox-v2
 
 hosts:
   - name: attacker
