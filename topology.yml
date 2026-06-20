@@ -15,10 +15,10 @@ hosts:
 
 routers:
   - name: router
-    flavor: m1.tiny
+    flavor: m1.small
     base_box:
-      image: cirros
-      mgmt_user: cirros
+      image: debian-12-x86_64
+      mgmt_user: debian
 
 networks:
   - name: dmz-net
